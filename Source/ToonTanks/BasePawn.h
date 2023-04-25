@@ -31,7 +31,8 @@ public:
 		int32 EditInstanceOnlyInt = 14;
 
 
-	
+protected:
+	void RotateTurret(FVector LookAtTarget);
 
 
 private:
