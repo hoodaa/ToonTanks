@@ -33,6 +33,7 @@ public:
 
 protected:
 	void RotateTurret(FVector LookAtTarget);
+	void Fire();
 
 
 private:
@@ -44,6 +45,9 @@ private:
 	UStaticMeshComponent* TurretMesh;
 	UPROPERTY(VisibleAnyWhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	USceneComponent* ProjectileSpwanPoint;
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Combat");
+	TSubclassOf<class AProjectile> ProjectileClass;
 public:	
 
 	// Called to bind functionality to input
