@@ -21,7 +21,7 @@ ATank::ATank()
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
-	PlayerControllerRef = Cast<APlayerController>(GetController());
+	TankPlayerController = Cast<APlayerController>(GetController());
 
 
 }
@@ -38,10 +38,10 @@ void ATank::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (PlayerControllerRef)
+	if (TankPlayerController)
 	{
 		FHitResult HitResult;
-		PlayerControllerRef->GetHitResultUnderCursor(ECollisionChannel::ECC_Visibility
+		TankPlayerController->GetHitResultUnderCursor(ECollisionChannel::ECC_Visibility
 			,false
 			,HitResult);
 		DrawDebugSphere(GetWorld(),HitResult.ImpactPoint , 25.f, 12, FColor::Red, false, -1);
@@ -61,4 +61,10 @@ void ATank::Turn(float value)
 	FRotator DeltaRotation = FRotator::ZeroRotator;
 	DeltaRotation.Yaw = value* TurnRate *UGameplayStatics::GetWorldDeltaSeconds(this);
 	AddActorLocalRotation(DeltaRotation,true);
+}
+void ATank::HandleDestruction()
+{
+	Super::HandleDestruction();
+	SetActorHiddenInGame(true);
+	SetActorTickEnabled(false);
 }

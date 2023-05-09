@@ -16,6 +16,8 @@ class TOONTANKS_API ATank : public ABasePawn
 	
 public:
 	ATank();
+
+	void HandleDestruction();
 	UPROPERTY(EditAnyWhere, Category = "Movement")
 		float Speed = 200.f;
 
@@ -27,6 +29,8 @@ public:
 
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	APlayerController* GetTankPlayerController() const { return TankPlayerController;}
 
 protected:
 	// Called when the game starts or when spawned
@@ -43,5 +47,5 @@ private:
 	void Move(float value);
 	void Turn(float value);
 
-	APlayerController* PlayerControllerRef;
+	APlayerController* TankPlayerController;
 };
