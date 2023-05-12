@@ -50,6 +50,9 @@ private:
 	
 	UPROPERTY(EditDefaultsOnly, Category = "Combat");
 	TSubclassOf<class AProjectile> ProjectileClass;
+
+	UPROPERTY(EditAnyWhere, Category = "Combat")
+		UParticleSystem* DeathParticles;
 public:	
 
 	// Called to bind functionality to input
