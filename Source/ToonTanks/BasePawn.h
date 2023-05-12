@@ -56,6 +56,9 @@ private:
 
 	UPROPERTY(EditAnywhere,Category="Combat")
 	class USoundBase* DeathSound;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	TSubclassOf<class UCameraShakeBase> DeathCameraShake;
 public:	
 
 	// Called to bind functionality to input
