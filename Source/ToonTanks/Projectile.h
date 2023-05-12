@@ -42,4 +42,10 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	class UParticleSystemComponent* HitTrails;
 
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	class USoundBase* LaunchSound;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+		USoundBase* HitSound;
+
 };

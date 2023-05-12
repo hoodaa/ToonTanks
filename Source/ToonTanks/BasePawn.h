@@ -48,11 +48,14 @@ private:
 	UPROPERTY(VisibleAnyWhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	USceneComponent* ProjectileSpwanPoint;
 	
-	UPROPERTY(EditDefaultsOnly, Category = "Combat");
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
 	TSubclassOf<class AProjectile> ProjectileClass;
 
-	UPROPERTY(EditAnyWhere, Category = "Combat")
+	UPROPERTY(EditAnywhere, Category = "Combat")
 		UParticleSystem* DeathParticles;
+
+	UPROPERTY(EditAnywhere,Category="Combat")
+	class USoundBase* DeathSound;
 public:	
 
 	// Called to bind functionality to input
